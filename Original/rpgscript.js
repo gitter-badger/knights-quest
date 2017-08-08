@@ -1,8 +1,5 @@
 // DO NOT EDIT OR MODIFY THIS SOURCE CODE.
-// © Copyright 1999.  Pok-Ching Lee.  All Rights Reserved.
-
-goodexp = 0;
-mebeogd = 0;
+// Â© Copyright 1999.  Pok-Ching Lee.  All Rights Reserved.
 
 function setnum(thenum,digits,place) {
 var tempnum = thenum;
@@ -236,8 +233,6 @@ if (absorb == 15) {ar7()};
 if (absorb == 20) {ar8()};
 if (absorb == 25) {ar9()};
 if (absorb == 35) {ar10()};
-if (absorb == 100) {ar11()};
-if (absorb == 512) {ar12()};
 
 if (sabsorb == 1) {sd1()};
 if (sabsorb == 2) {sd2()};
@@ -258,8 +253,6 @@ if (sabsorb == 26) {sd16()};
 if (sabsorb == 29) {sd17()};
 if (sabsorb == 32) {sd18()};
 if (sabsorb == 35) {sd19()};
-if (sabsorb == 100) {sd20()};
-if (sabsorb == 512) {sd21()};
 
 }
 
@@ -295,8 +288,6 @@ if (sabsorb == 26) {document.shieldpic.src = "weapon/shields/sh16.gif"};
 if (sabsorb == 29) {document.shieldpic.src = "weapon/shields/sh17.gif"};
 if (sabsorb == 32) {document.shieldpic.src = "weapon/shields/sh18.gif"};
 if (sabsorb == 35) {document.shieldpic.src = "weapon/shields/sh19.gif"};
-if (sabsorb == 100) {document.shieldpic.src = "weapon/shields/sh19.gif"};
-if (sabsorb == 512) {document.shieldpic.src = "weapon/shields/sh19.gif"};
 
 calgear();
 }
@@ -337,8 +328,6 @@ if (buywindow.document.buystuff.t.checked == true) {bt()};
 if (buywindow.document.buystuff.u.checked == true) {bu()};
 if (buywindow.document.buystuff.v.checked == true) {bv()};
 if (buywindow.document.buystuff.w.checked == true) {bw()};
-if (buywindow.document.buystuff.x.checked == true) {bx()};
-if (buywindow.document.buystuff.y.checked == true) {by()};
 
 if (buywindow.document.buystuff.aa.checked == true) {ba1()};
 if (buywindow.document.buystuff.ab.checked == true) {bb2()};
@@ -359,8 +348,6 @@ if (buywindow.document.buystuff.ap.checked == true) {bp16()};
 if (buywindow.document.buystuff.aq.checked == true) {bq17()};
 if (buywindow.document.buystuff.ar.checked == true) {br18()};
 if (buywindow.document.buystuff.as.checked == true) {bs19()};
-if (buywindow.document.buystuff.at.checked == true) {bt20()};
-if (buywindow.document.buystuff.au.checked == true) {bu21()};
 buywindow.focus();
 }
 
@@ -567,9 +554,12 @@ document.formb.left.value = pleft;
 
 
 function ys() {
+if (pleft >= 1)
+	{
 	pleft = (pleft * 1) - (1 * 1);
 	st = (st * 1) + (1 * 1);
 	showstatb();
+	};
 }
 
 function ns() {
@@ -586,9 +576,12 @@ else
 }
 
 function ye() {
+if (pleft >= 1)
+	{
 	pleft = (pleft * 1) - (1 * 1);
 	en = (en * 1) + (1 * 1);
 	showstatb();
+	};
 }
 
 function ne() {
@@ -605,9 +598,12 @@ else
 }
 
 function ya() {
+if (pleft >= 1)
+	{
 	pleft = (pleft * 1) - (1 * 1);
 	ag = (ag * 1) + (1 * 1);
 	showstatb();
+	};
 }
 
 function na() {
@@ -624,9 +620,12 @@ else
 }
 
 function ym() {
+if (pleft >= 1)
+	{
 	pleft = (pleft * 1) - (1 * 1);
 	ma = (ma * 1) + (1 * 1);
 	showstatb();
+	};
 }
 
 function nm() {
@@ -774,10 +773,10 @@ setnum(agi,3,"agi");
 setnum(mag,3,"mag");
 setnum(yevade,2,"evd");
 
-setnum(maxhp,5,"mhp");
-setnum(currenthp,5,"chp");
-setnum(maxmp,5,"mmp");
-setnum(currentmp,5,"cmp");
+setnum(maxhp,4,"mhp");
+setnum(currenthp,4,"chp");
+setnum(maxmp,4,"mmp");
+setnum(currentmp,4,"cmp");
 setnum(ylevel,3,"level");
 
 setnum(ygold,10,"gold");
@@ -1198,36 +1197,6 @@ else
 	}
 }
 
-function bx() {
-if (ygold <= 99999)
-	{
-	alert("You do not have enough money.");
-	}
-else
-	{
-	alert("You have purchased some Godly armor.");
-	ygold = (ygold * 1) - (100000 * 1);
-	absorb = 100;
-	showgear();
-	showstat();
-	}
-}
-
-function by() {
-if (ygold <= 999999)
-	{
-	alert("You do not have enough money.");
-	}
-else
-	{
-	alert("You have purchased OGd's armor.");
-	ygold = (ygold * 1) - (1000000 * 1);
-	absorb = 512;
-	showgear();
-	showstat();
-	}
-}
-
 function ba1() {
 if (ygold <= 49)
 	{
@@ -1514,36 +1483,6 @@ else
 	}
 }
 
-function bt20() {
-if (ygold <= 149999)
-	{
-	alert("You do not have enough money.");
-	}
-else
-	{
-	alert("You have purchased a Godly shield.");
-	ygold = (ygold * 1) - (150000 * 1);
-	sabsorb = 100;
-	showgear();
-	showstat();
-	}
-}
-
-function bu21() {
-if (ygold <= 1999999)
-	{
-	alert("You do not have enough money.");
-	}
-else
-	{
-	alert("You have purchased OGd's shield.");
-	ygold = (ygold * 1) - (1500000 * 1);
-	sabsorb = 512;
-	showgear();
-	showstat();
-	}
-}
-
 
 
 function wp1() {
@@ -1598,11 +1537,6 @@ document.gear.wname.value = "Knight's Blade";
 document.gear.wstat.value = "5-50";
 }
 
-function wp11() {
-document.gear.wname.value = "OGd's Blade";
-document.gear.wstat.value = "10-100";
-}
-
 function ar1() {
 document.gear.aname.value = "Clothes";
 document.gear.astat.value = "+2"
@@ -1651,16 +1585,6 @@ document.gear.astat.value = "+25"
 function ar10() {
 document.gear.aname.value = "Knight's Armor";
 document.gear.astat.value = "+35"
-}
-
-function ar11() {
-document.gear.aname.value = "Godly Armor";
-document.gear.astat.value = "+100"
-}
-
-function ar12() {
-document.gear.aname.value = "OGd's Armor";
-document.gear.astat.value = "+512"
 }
 
 function sd1() {
@@ -1758,24 +1682,14 @@ document.gear.sname.value = "Large Knight's Shield";
 document.gear.sstat.value = "+35"
 }
 
-function sd20() {
-document.gear.sname.value = "Godly Shield";
-document.gear.sstat.value = "+100"
-}
-
-function sd21() {
-document.gear.sname.value = "OGd's Shield";
-document.gear.sstat.value = "+512"
-}
 
 
 
 
-
-//Monsters and battle system
+//Monsters/ and battle system
 
 function ysurvive() {
-if ((currenthp <= 0) && (mebeogd != 1))
+if (currenthp <= 0)
 	{
 	window.location="dead.html";
 	}
@@ -1790,7 +1704,6 @@ var up3 = Math.round(Math.random() * 5) + (eb * 1);
 var up4 = Math.round(Math.random() * 5) + (mb * 1);
 var up5 = Math.round(Math.random() * mag * 1) + (mpmore * 1) + (mpb * 1);
 var up6 = Math.round((Math.random() * 1.25) + (end * 1.2) + (str * .25)) + (hpmore * 1) + (lb * 1);
-var up7 = Math.round((evadebounus * 1) + (agi * .5));
 
 str = (str * 1) + (up1 * 1);
 agi = (agi * 1) + (up2 * 1);
@@ -1798,18 +1711,16 @@ end = (end * 1) + (up3 * 1);
 mag = (mag * 1) + (up4 * 1);
 maxhp = (maxhp * 1) + (up6 * 1);
 maxmp = (maxmp * 1) + (up5 * 1);
-yevade = (yevade * 1) + (up7 * 1);
-if (yevade > 95) {yevade = 95};
+
+yevade = Math.round((evadebounus * 1) + (agi * .5));
 
 alert("You have gained a level.");
-alert("Your strength increased by "    + up1 + " to " + str    + ".");
-alert("Your endurance increased by "   + up3 + " to " + agi    + ".");
-alert("Your agility increased by "     + up2 + " to " + end    + ".");
-alert("Your magic increased by "       + up4 + " to " + mag    + ".");
-alert("Your max hp increased by "      + up6 + " to " + maxhp  + ".");
-alert("Your max mp increased by "      + up5 + " to " + maxmp  + ".");
-if (yevade == 95) {alert("Your evasion is capped at 95%")};
-if (yevade != 95) {alert("Your evasion has increased by " + up7 + "% to " + yevade + "%.")};
+alert("Your strength increased by " + up1 + ".");
+alert("Your endurance increased by " + up3 + ".");
+alert("Your agility increased by " + up2 + ".");
+alert("Your magic increased by " + up4 + ".");
+alert("Your max hp increased by " + up6 + ".");
+alert("Your max mp increased by " + up5 + ".");
 showstat();
 }
 
@@ -1876,11 +1787,6 @@ if (boss == 7) {vboss7()}
 
 function victory() {
 ygold = (ygold * 1) + (wingold * 1);
-alert("yexp = " + yexp);
-alert("winexp = " + winexp);
-alert("ylevel = " + ylevel);
-alert("nextlevel = " + nextlevel);
-if ((goodexp == 1) && (winexp < (nextlevel/(ylevel^2*5)))) {winexp = Math.round(nextlevel/(ylevel^2*5),0)};
 yexp = (yexp * 1) + (winexp * 1);
 alert("You are victorious.  You gained " + wingold + " gold and " + winexp + " experience.")
 callevel();
@@ -2192,7 +2098,6 @@ if (yourweapon == 7) {attackb = Math.round(Math.random() * 15 + 2)};
 if (yourweapon == 8) {attackb = Math.round(Math.random() * 20 + 2)};
 if (yourweapon == 9) {attackb = Math.round(Math.random() * 30 + 2)};
 if (yourweapon == 10) {attackb = Math.round(Math.random() * 50 + 5)};
-if (yourweapon == 11) {attackb = Math.roung(Math.random() * 100 + 1)};
 
 var rdm4 = Math.round(Math.random() * 99);
 var renemyevade = Math.round(enemyevade * 1) - (agi * .5);
@@ -2560,7 +2465,7 @@ else
 }
 
 
-//Sleep
+//Sleep/
 function cast15() {
 if (currentmp >= 15)
 	{
@@ -2592,7 +2497,7 @@ else
 }
 
 
-//Paralyze
+//Paralyze/
 function cast16() {
 if (currentmp >= 30)
 	{
@@ -2623,7 +2528,7 @@ else
 
 }
 
-//Drain 2
+//Drain/ 2
 function cast17() {
 if (currentmp >= 50)
 	{
@@ -2643,7 +2548,7 @@ else
 	}
 }
 
-//Analyze
+//Analyze/
 function cast18() {
 if (currentmp >= 5)
 	{
@@ -2666,7 +2571,7 @@ else
 }
 
 
-//Attack Up
+//Attack/ Up
 
 function cast19() {
 if (addstr == 0)
@@ -2714,10 +2619,10 @@ else
 
 
 
-//Enemy and Stats
+//Enemy/ and Stats
 
 
-//Wild Man
+//Wild/ Man
 
 function a1() {
 document.monster.src = "monster/a1.gif";
@@ -2741,7 +2646,7 @@ counter();
 }
 
 
-//Squire
+//Squire/
 
 function a2() {
 document.monster.src = "monster/a2.gif";
@@ -2765,7 +2670,7 @@ counter();
 }
 
 
-//Amazon
+//Amazon/
 
 function a3() {
 document.monster.src = "monster/a3.gif";
@@ -2789,7 +2694,7 @@ counter();
 }
 
 
-//Novice Knight
+//Novice/ Knight
 
 function a4() {
 document.monster.src = "monster/a4.gif";
@@ -2823,7 +2728,7 @@ ysurvive();
 }
 
 
-//Female Mercenary: (Boss1)
+//Female/ Mercenary: (Boss1)
 
 function fboss1() {
 alert("You have encountered a female mercenary.");
@@ -2856,7 +2761,7 @@ ysurvive();
 }
 
 
-//Female Barbarian
+//Female/ Barbarian
 
 function a6() {
 document.monster.src = "monster/a6.gif";
@@ -2890,7 +2795,7 @@ ysurvive();
 }
 
 
-//Lizard
+//Lizard/
 
 function a7() {
 document.monster.src = "monster/a7.gif";
@@ -2915,7 +2820,7 @@ counter();
 }
 
 
-//Lesser Dragon
+//Lesser/ Dragon
 
 function a8() {
 document.monster.src = "monster/a8.gif";
@@ -2948,7 +2853,7 @@ showstat();
 ysurvive();
 }
 
-//Red Dragon: (Boss2)
+//Red/ Dragon: (Boss2)
 
 function fboss2() {
 alert("You have encountered a red dragon.");
@@ -2982,7 +2887,7 @@ ysurvive();
 
 
 
-//Winged Warrior
+//Winged/ Warrior
 
 function a10() {
 document.monster.src = "monster/a10.gif";
@@ -3015,7 +2920,7 @@ ysurvive();
 }
 
 
-//Red Gargoyle
+//Red/ Gargoyle
 
 function a11() {
 document.monster.src = "monster/a11.gif";
@@ -3046,7 +2951,7 @@ document.monster.src = "pic/outside.gif";
 }
 
 
-//Werewolf
+//Werewolf/
 
 function a12() {
 document.monster.src = "monster/a12.gif";
@@ -3080,7 +2985,7 @@ ysurvive();
 
 
 
-//Apprentice Mage
+//Apprentice/ Mage
 
 function a13() {
 document.monster.src = "monster/a13.gif";
@@ -3133,7 +3038,7 @@ else
 
 
 
-//Warlock: (Boss3)
+//Warlock:/ (Boss3)
 
 function fboss3() {
 alert("You have encountered a warlock.");
@@ -3211,7 +3116,7 @@ if (rdmwarlock >= 81)
 
 
 
-//Archer
+//Archer/
 
 function a15() {
 document.monster.src = "monster/a15.gif";
@@ -3244,7 +3149,7 @@ ysurvive();
 }
 
 
-//Blue Dragon
+//Blue/ Dragon
 
 function a16() {
 document.monster.src = "monster/a16.gif";
@@ -3278,7 +3183,7 @@ ysurvive();
 
 
 
-//Long Swordmen
+//Long/ Swordmen
 
 function a17() {
 document.monster.src = "monster/a17.gif";
@@ -3312,7 +3217,7 @@ ysurvive();
 
 
 
-//Pegasus
+//Pegasus/
 
 function a18() {
 document.monster.src = "monster/a18.gif";
@@ -3345,7 +3250,7 @@ ysurvive();
 }
 
 
-//Minotaur: (Boss4)
+//Minotaur:/ (Boss4)
 
 function fboss4() {
 alert("You have encountered a minotaur.");
@@ -3378,7 +3283,7 @@ ysurvive();
 }
 
 
-//Dark Knight
+//Dark/ Knight
 
 function a20() {
 document.monster.src = "monster/a20.gif";
@@ -3414,7 +3319,7 @@ if (ehp > 400) {ehp = 400};
 
 
 
-//Squad Leader
+//Squad/ Leader
 
 function a21() {
 document.monster.src = "monster/a21.gif";
@@ -3447,7 +3352,7 @@ ysurvive();
 }
 
 
-//Paladin
+//Paladin/
 
 function a22() {
 document.monster.src = "monster/a22.gif";
@@ -3513,7 +3418,7 @@ else
 }
 
 
-//Heavy Calvary
+//Heavy/ Calvary
 
 function a23() {
 document.monster.src = "monster/a23.gif";
@@ -3560,7 +3465,7 @@ else
 }
 
 
-//Red Mage
+//Red/ Mage
 
 function a24() {
 document.monster.src = "monster/a24.gif";
@@ -3593,7 +3498,7 @@ ysurvive();
 }
 
 
-//Fire Dragon
+//Fire/ Dragon
 
 function a25() {
 document.monster.src = "monster/a25.gif";
@@ -3634,9 +3539,9 @@ ysurvive();
 
 
 
-//Final Boss
+//Final/ Boss
 
-//Stage1 Necromancer: (Final Boss1)
+//Stage1/ Necromancer: (Final Boss1)
 
 function fboss5() {
 alert("You have encountered a necromancer.");
@@ -3719,7 +3624,7 @@ if (rdmwarlock0 >= 91)
 	};	
 }
 
-//Stage2 Reaper
+//Stage2/ Reaper
 
 function fboss6() {
 document.monster.src = "monster/bossf2.gif";
@@ -3767,7 +3672,7 @@ else
 }
 
 
-//Stage3 Dark Serpent
+//Stage3/ Dark Serpent
 
 function fboss7() {
 document.monster.src = "monster/bossf3.gif";
