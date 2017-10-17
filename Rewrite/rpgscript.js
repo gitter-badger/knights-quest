@@ -1,5 +1,5 @@
 // DO NOT EDIT OR MODIFY THIS SOURCE CODE.
-// © Copyright 1999.  Pok-Ching Lee.  All Rights Reserved.
+// ï¿½ Copyright 1999.  Pok-Ching Lee.  All Rights Reserved.
 
 goodexp = 0;
 mebeogd = 0;
@@ -25,7 +25,7 @@ if (buttontype == 1) {setSave2()} else {alert("You can only save when you are in
 
 function setSave2() {
 var theconfirm = confirm("Your previous save game will be deleted and be replace by this game.  Are you sure you want to save?")
-if (theconfirm == true) 
+if (theconfirm)
 	{
 	setSave3();
 	alert("Your game has been saved.  Do not delelte your cookie files.  If you delete your cookies, your save game will be lost.");
@@ -33,14 +33,14 @@ if (theconfirm == true)
 }
 
 function setSave3() {
-var expdate=new Date("December 25, 2099");                    
+var expdate=new Date("December 25, 2099");
 var expdate=expdate.toGMTString();
 document.cookie = boss+ "," +ylevel+ "," +mpmore+ "," +hpmore+ "," +nextlevel+ "," +yourweapon+ "," +absorb+ "," +sabsorb+ "," +ygold+ "," +yexp+ "," +str+ "," +end+ "," +agi+ "," +mag+ "," +maxhp+ "," +maxmp+ "," +yevade+ "," +sb+ "," +eb+ "," +ab+ "," +mb+ "," +lb+ "," +mpb+ "," +currenthp+ "," +currentmp+ "," +h1+ "," +h2+ "," +h3+ "," +h4+ "," +h5+ "," +h6+ "," +cname+ "," +suse+ "," +mage+ "," +evadebounus+ "," +healb+ ";expires=" +expdate;
 }
 
 function setLoad() {
 var theconfirm = confirm("Loading the game will delete the character you are currently using.  Are you sure you want to load the game?");
-if (theconfirm == true) 
+if (theconfirm)
 	{
 	if (document.cookie == "")
 		{
@@ -126,7 +126,7 @@ msg3 = "You have slay the dragon and now you moved on to Xantos.  Here, you are 
 
 msg4 = "After finishing your quest, you have became well known in the lands.  You are summoned by the king of Argos for a special quest.  Your quest is to retrieve the golden fleece which is guarded by the Minotaur.";
 
-msg5 = "After returning with the golden fleece, the king promptly gives you your final quest.  A necromancer has been behind all of the past attacks.  You quest is to destroy him and bring peace to the lands." 
+msg5 = "After returning with the golden fleece, the king promptly gives you your final quest.  A necromancer has been behind all of the past attacks.  You quest is to destroy him and bring peace to the lands."
 
 function loadit() {
 created = 0;
@@ -311,56 +311,56 @@ document.items.heal6.value = h6;
 }
 
 function shop1() {
-if (buywindow.document.buystuff.a.checked == true) {ba()};
-if (buywindow.document.buystuff.b.checked == true) {bb()};
-if (buywindow.document.buystuff.b1.checked == true) {healingbrew()};
-if (buywindow.document.buystuff.b2.checked == true) {magicether()};
-if (buywindow.document.buystuff.b3.checked == true) {magicpotion()};
-if (buywindow.document.buystuff.c.checked == true) {bc()};
-if (buywindow.document.buystuff.d.checked == true) {bd()};
-if (buywindow.document.buystuff.e.checked == true) {be()};
-if (buywindow.document.buystuff.f.checked == true) {bf()};
-if (buywindow.document.buystuff.g.checked == true) {bg()};
-if (buywindow.document.buystuff.h.checked == true) {bh()};
-if (buywindow.document.buystuff.i.checked == true) {bi()};
-if (buywindow.document.buystuff.j.checked == true) {bj()};
-if (buywindow.document.buystuff.k.checked == true) {bk()};
-if (buywindow.document.buystuff.l.checked == true) {bl()};
-if (buywindow.document.buystuff.m.checked == true) {bm()};
-if (buywindow.document.buystuff.n.checked == true) {bn()};
-if (buywindow.document.buystuff.o.checked == true) {bo()};
-if (buywindow.document.buystuff.p.checked == true) {bp()};
-if (buywindow.document.buystuff.q.checked == true) {bq()};
-if (buywindow.document.buystuff.r.checked == true) {br()};
-if (buywindow.document.buystuff.s.checked == true) {bs()};
-if (buywindow.document.buystuff.t.checked == true) {bt()};
-if (buywindow.document.buystuff.u.checked == true) {bu()};
-if (buywindow.document.buystuff.v.checked == true) {bv()};
-if (buywindow.document.buystuff.w.checked == true) {bw()};
-if (buywindow.document.buystuff.x.checked == true) {bx()};
-if (buywindow.document.buystuff.y.checked == true) {by()};
+if (buywindow.document.buystuff.a.checked) {ba()};
+if (buywindow.document.buystuff.b.checked) {bb()};
+if (buywindow.document.buystuff.b1.checked) {healingbrew()};
+if (buywindow.document.buystuff.b2.checked) {magicether()};
+if (buywindow.document.buystuff.b3.checked) {magicpotion()};
+if (buywindow.document.buystuff.c.checked) {bc()};
+if (buywindow.document.buystuff.d.checked) {bd()};
+if (buywindow.document.buystuff.e.checked) {be()};
+if (buywindow.document.buystuff.f.checked) {bf()};
+if (buywindow.document.buystuff.g.checked) {bg()};
+if (buywindow.document.buystuff.h.checked) {bh()};
+if (buywindow.document.buystuff.i.checked) {bi()};
+if (buywindow.document.buystuff.j.checked) {bj()};
+if (buywindow.document.buystuff.k.checked) {bk()};
+if (buywindow.document.buystuff.l.checked) {bl()};
+if (buywindow.document.buystuff.m.checked) {bm()};
+if (buywindow.document.buystuff.n.checked) {bn()};
+if (buywindow.document.buystuff.o.checked) {bo()};
+if (buywindow.document.buystuff.p.checked) {bp()};
+if (buywindow.document.buystuff.q.checked) {bq()};
+if (buywindow.document.buystuff.r.checked) {br()};
+if (buywindow.document.buystuff.s.checked) {bs()};
+if (buywindow.document.buystuff.t.checked) {bt()};
+if (buywindow.document.buystuff.u.checked) {bu()};
+if (buywindow.document.buystuff.v.checked) {bv()};
+if (buywindow.document.buystuff.w.checked) {bw()};
+if (buywindow.document.buystuff.x.checked) {bx()};
+if (buywindow.document.buystuff.y.checked) {by()};
 
-if (buywindow.document.buystuff.aa.checked == true) {ba1()};
-if (buywindow.document.buystuff.ab.checked == true) {bb2()};
-if (buywindow.document.buystuff.ac.checked == true) {bc3()};
-if (buywindow.document.buystuff.ad.checked == true) {bd4()};
-if (buywindow.document.buystuff.ae.checked == true) {be5()};
-if (buywindow.document.buystuff.af.checked == true) {bf6()};
-if (buywindow.document.buystuff.ag.checked == true) {bg7()};
-if (buywindow.document.buystuff.ah.checked == true) {bh8()};
-if (buywindow.document.buystuff.ai.checked == true) {bi9()};
-if (buywindow.document.buystuff.aj.checked == true) {bj10()};
-if (buywindow.document.buystuff.ak.checked == true) {bk11()};
-if (buywindow.document.buystuff.al.checked == true) {bl12()};
-if (buywindow.document.buystuff.am.checked == true) {bm13()};
-if (buywindow.document.buystuff.an.checked == true) {bn14()};
-if (buywindow.document.buystuff.ao.checked == true) {bo15()};
-if (buywindow.document.buystuff.ap.checked == true) {bp16()};
-if (buywindow.document.buystuff.aq.checked == true) {bq17()};
-if (buywindow.document.buystuff.ar.checked == true) {br18()};
-if (buywindow.document.buystuff.as.checked == true) {bs19()};
-if (buywindow.document.buystuff.at.checked == true) {bt20()};
-if (buywindow.document.buystuff.au.checked == true) {bu21()};
+if (buywindow.document.buystuff.aa.checked) {ba1()};
+if (buywindow.document.buystuff.ab.checked) {bb2()};
+if (buywindow.document.buystuff.ac.checked) {bc3()};
+if (buywindow.document.buystuff.ad.checked) {bd4()};
+if (buywindow.document.buystuff.ae.checked) {be5()};
+if (buywindow.document.buystuff.af.checked) {bf6()};
+if (buywindow.document.buystuff.ag.checked) {bg7()};
+if (buywindow.document.buystuff.ah.checked) {bh8()};
+if (buywindow.document.buystuff.ai.checked) {bi9()};
+if (buywindow.document.buystuff.aj.checked) {bj10()};
+if (buywindow.document.buystuff.ak.checked) {bk11()};
+if (buywindow.document.buystuff.al.checked) {bl12()};
+if (buywindow.document.buystuff.am.checked) {bm13()};
+if (buywindow.document.buystuff.an.checked) {bn14()};
+if (buywindow.document.buystuff.ao.checked) {bo15()};
+if (buywindow.document.buystuff.ap.checked) {bp16()};
+if (buywindow.document.buystuff.aq.checked) {bq17()};
+if (buywindow.document.buystuff.ar.checked) {br18()};
+if (buywindow.document.buystuff.as.checked) {bs19()};
+if (buywindow.document.buystuff.at.checked) {bt20()};
+if (buywindow.document.buystuff.au.checked) {bu21()};
 buywindow.focus();
 }
 
@@ -375,7 +375,7 @@ townbutton();
 
 function inn() {
 var sureinn = confirm("Would you like to rest in the inn for $50?");
-if (sureinn == true)
+if (sureinn)
 	{
 	ygold = (ygold * 1) - (50 * 1);
 	currenthp = maxhp;
@@ -405,7 +405,7 @@ if (ygold <= 49)
 	}
 else
 	{
-	inn();	
+	inn();
 	}
 				}
 else
@@ -725,16 +725,16 @@ document.stats.gamename.value = cname;
 }
 
 function create2() {
-if (document.formb.c3.checked == true) {mage = 1} else {mage = 0};
-if (document.formb.c4.checked == true) {healb = 1.85} else {healb = 1};
-if (document.formb.c1.checked == true) {suse = 1.5} else {suse = 1};
+if (document.formb.c3.checked) {mage = 1} else {mage = 0};
+if (document.formb.c4.checked) {healb = 1.85} else {healb = 1};
+if (document.formb.c1.checked) {suse = 1.5} else {suse = 1};
 
 boss = 1;
 ylevel = 1;
 mpmore = mpbounus;
 hpmore = hpbounus;
 nextlevel = 85;
-if (document.formb.pick1.checked == true) {nextlevel = 75}
+if (document.formb.pick1.checked) {nextlevel = 75}
 yourweapon = 1;
 absorb = 2;
 sabsorb = 1;
@@ -748,7 +748,7 @@ mag = ma;
 maxhp = Math.round((30 * 1) + (end * 2.5));
 maxmp = Math.round((15 * 1) + (mag * 1.2));
 evadebounus = (yevadet * 1);
-if (document.formb.c2.checked == true) {evadebounus = (evadebounus * 1) + (15 * 1)};
+if (document.formb.c2.checked) {evadebounus = (evadebounus * 1) + (15 * 1)};
 yevade = Math.round((evadebounus * 1) + (agi * .5));
 
 sb = tsbounus;
@@ -799,7 +799,7 @@ alert("Character created.  Scroll down to play the game.");
 
 function confirmit() {
 var sure = confirm("You already have a character created.  Creating a new character will delete your previous charater and start a new game.  Are you sure you want to do this?");
-if (sure == true)
+if (sure)
 		{
 		create2();
 		}
@@ -2012,12 +2012,12 @@ else
 }
 
 function fight2() {
-if (document.items.rad1.checked == true) {uitem1()};
-if (document.items.rad2.checked == true) {uitem2()};
-if (document.items.rad3.checked == true) {uitem3()};
-if (document.items.rad4.checked == true) {uitem4()};
-if (document.items.rad5.checked == true) {uitem5()};
-if (document.items.rad6.checked == true) {uitem6()};
+if (document.items.rad1.checked) {uitem1()};
+if (document.items.rad2.checked) {uitem2()};
+if (document.items.rad3.checked) {uitem3()};
+if (document.items.rad4.checked) {uitem4()};
+if (document.items.rad5.checked) {uitem5()};
+if (document.items.rad6.checked) {uitem6()};
 
 
 }
@@ -2172,7 +2172,7 @@ else
 function fightback() {
 var rdm0 = Math.round(Math.random() * 99);
 if (rdm0 >= 20)
-	{ 
+	{
 	regularattack();
 	}
 else
@@ -2346,7 +2346,7 @@ if (currentmp >= 30)
 	attackp = Math.round((Math.random() * 30) + (mag * 1.85) - (marmor * 1));
 	if (attackp <= 0) {attackp = 1};
 	alert("Your cast fire storm and inflicted " + attackp + " points of damage.");
-	survive();	
+	survive();
 	showstat();
 	}
 else
@@ -2363,7 +2363,7 @@ if (currentmp >= 35)
 	if (attackp <= 0) {attackp = 1};
 	alert("Your cast blizzard and inflicted " + attackp + " points of damage.");
 	survive();
-	showstat();	
+	showstat();
 	}
 else
 	{
@@ -2425,7 +2425,7 @@ if (currentmp >= 80)
 	attackp = Math.round((Math.random() * 50) + (mag * 3.5) - (marmor * 1));
 	if (attackp <= 0) {attackp = 1};
 	alert("Your cast meteor and inflicted " + attackp + " points of damage.");
-	survive();	
+	survive();
 	}
 else
 	{
@@ -3182,7 +3182,7 @@ else
 
 function sp14x() {
 var rdmwarlock = Math.round(Math.random() * 99);
-if (rdmwarlock <= 40) 
+if (rdmwarlock <= 40)
 	{
 	eattack = Math.round((Math.random() * 30) + (100 * 1) - (mag * .25) - (magdef * 1));
 	if (eattack <= 0) {eattack = 1};
@@ -3206,7 +3206,7 @@ if (rdmwarlock >= 81)
 	var hself = Math.round((Math.random() * 20) + (85 * 1));
 	ehp = (hself * 1) + (ehp * 1);
 	alert("Warlock cast heal on himself and recovered " + hself + " hit points.");
-	};	
+	};
 }
 
 
@@ -3489,7 +3489,7 @@ if (ehp >= 200)
 	}
 else
 	{
-	special22b();		
+	special22b();
 	}
 }
 
@@ -3508,7 +3508,7 @@ else
 	alert("The paladin charges at you causing " + eattack + " points of damage.");
 	currenthp = (currenthp * 1) - (eattack * 1);
 	showstat();
-	ysurvive();	
+	ysurvive();
 	}
 }
 
@@ -3686,7 +3686,7 @@ else
 
 function sp26x() {
 var rdmwarlock0 = Math.round(Math.random() * 99);
-if (rdmwarlock0 <= 60) 
+if (rdmwarlock0 <= 60)
 	{
 	eattack = Math.round((Math.random() * 45) + (100 * 1) - (mag * .75) - (magdef * 1));
 	if (eattack <= 0) {eattack = 1};
@@ -3716,7 +3716,7 @@ if (rdmwarlock0 >= 91)
 	ysurvive();
 	ehp = (ehp * 1) + (eattack * 1);
 	if (ehp > 500) {ehp = 500};
-	};	
+	};
 }
 
 //Stage2 Reaper
