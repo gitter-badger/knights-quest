@@ -382,7 +382,7 @@ function shop1() {
 	if (buywindow.document.buystuff.ad.checked) { bd4() };
 	if (buywindow.document.buystuff.ae.checked) { be5() };
 	if (buywindow.document.buystuff.af.checked) { bf6() };
-	if (buywindow.document.buystuff.ag.checked) { bg7() };
+	if (buywindow.document.buystuff.agility.checked) { bg7() };
 	if (buywindow.document.buystuff.ah.checked) { bh8() };
 	if (buywindow.document.buystuff.ai.checked) { bi9() };
 	if (buywindow.document.buystuff.aj.checked) { bj10() };
@@ -556,26 +556,26 @@ function selectItem() {
 
 
 function showstatb() {
-	document.formb.s.value = st;
-	document.formb.e.value = en;
-	document.formb.a.value = ag;
-	document.formb.m.value = ma
-	document.formb.left.value = pleft;
+	document.formb.s.value = strength;
+	document.formb.e.value = endurance;
+	document.formb.a.value = agility;
+	document.formb.m.value = magic
+	document.formb.left.value = pointsLeft;
 }
 
 
 // increase strength
 function ys() {
-	pleft = (pleft * 1) - (1 * 1);
-	st = (st * 1) + (1 * 1);
+	pointsLeft = (pointsLeft * 1) - (1 * 1);
+	strength = (strength * 1) + (1 * 1);
 	showstatb();
 }
 
 // decrease strength
 function ns() {
-	if (st >= 9) {
-		st = (st * 1) - (1 * 1);
-		pleft = (pleft * 1) + (1 * 1);
+	if (strength >= 9) {
+		strength = (strength * 1) - (1 * 1);
+		pointsLeft = (pointsLeft * 1) + (1 * 1);
 		showstatb();
 	}
 	else {
@@ -585,16 +585,16 @@ function ns() {
 
 // increase endurance
 function ye() {
-	pleft = (pleft * 1) - (1 * 1);
-	en = (en * 1) + (1 * 1);
+	pointsLeft = (pointsLeft * 1) - (1 * 1);
+	endurance = (endurance * 1) + (1 * 1);
 	showstatb();
 }
 
 // decrease strength
 function ne() {
-	if (en >= 9) {
-		en = (en * 1) - (1 * 1);
-		pleft = (pleft * 1) + (1 * 1);
+	if (endurance >= 9) {
+		endurance = (endurance * 1) - (1 * 1);
+		pointsLeft = (pointsLeft * 1) + (1 * 1);
 		showstatb();
 	}
 	else {
@@ -604,16 +604,16 @@ function ne() {
 
 // increase agility
 function ya() {
-	pleft = (pleft * 1) - (1 * 1);
-	ag = (ag * 1) + (1 * 1);
+	pointsLeft = (pointsLeft * 1) - (1 * 1);
+	agility = (agility * 1) + (1 * 1);
 	showstatb();
 }
 
 // decrease agility
 function na() {
-	if (ag >= 9) {
-		ag = (ag * 1) - (1 * 1);
-		pleft = (pleft * 1) + (1 * 1);
+	if (agility >= 9) {
+		agility = (agility * 1) - (1 * 1);
+		pointsLeft = (pointsLeft * 1) + (1 * 1);
 		showstatb();
 	}
 	else {
@@ -623,16 +623,16 @@ function na() {
 
 // increase magic
 function ym() {
-	pleft = (pleft * 1) - (1 * 1);
-	ma = (ma * 1) + (1 * 1);
+	pointsLeft = (pointsLeft * 1) - (1 * 1);
+	magic = (magic * 1) + (1 * 1);
 	showstatb();
 }
 
 // decrease magic
 function nm() {
-	if (ma >= 9) {
-		ma = (ma * 1) - (1 * 1);
-		pleft = (pleft * 1) + (1 * 1);
+	if (magic >= 9) {
+		magic = (magic * 1) - (1 * 1);
+		pointsLeft = (pointsLeft * 1) + (1 * 1);
 		showstatb();
 	}
 	else {
@@ -642,51 +642,55 @@ function nm() {
 
 
 function raceHuman() {
-	st = 12;
-	en = 12;
-	ag = 12;
-	ma = 12;
-	pleft = 15;
+	strength = 12;
+	endurance = 12;
+	agility = 12;
+	magic = 12;
+	evade = 0;
+	hp = 1;
+	mp = 1;
+	
+	pointsLeft = 15;
 	showstatb();
-	yevadet = 0;
-	hpbounus = 1;
-	mpbounus = 1;
 }
 
 function raceElf() {
-	st = 8;
-	en = 8;
-	ag = 14;
-	ma = 14;
-	pleft = 12;
+	strength = 8;
+	endurance = 8;
+	agility = 14;
+	magic = 14;
+	evade = 5;
+	hp = 0;
+	mp = 5;
+
+	pointsLeft = 12;
 	showstatb();
-	yevadet = 5;
-	hpbounus = 0;
-	mpbounus = 5;
 }
 
 function raceDwarf() {
-	st = 14;
-	en = 14;
-	ag = 8;
-	ma = 8;
-	pleft = 12;
+	strength = 14;
+	endurance = 14;
+	agility = 8;
+	magic = 8;
+	evade = 0;
+	hp = 7;
+	mp = 0;
+
+	pointsLeft = 12;
 	showstatb();
-	yevadet = 0;
-	hpbounus = 7;
-	mpbounus = 0;
 }
 
 function raceHalfling() {
-	st = 10;
-	en = 10;
-	ag = 16;
-	ma = 10;
-	pleft = 12;
+	strength = 10;
+	endurance = 10;
+	agility = 16;
+	magic = 10;
+	evade = 15;
+	hp = 2;
+	mp = 2;
+	
+	pointsLeft = 12;
 	showstatb();
-	yevadet = 15;
-	hpbounus = 2;
-	mpbounus = 2;
 }
 
 function getSelectedRaceName() {
@@ -770,14 +774,14 @@ function create2() {
 	if (selectedRace === 'human') { player.exp.next = 75; } else { player.exp.next = 85; };
 
 	if (selectedClass === 'fighter') { player.class.fighter = 1.5 } else { player.class.fighter = 1 };
-	if (selectedClass === 'thief') { player.class.modifier.evade = (player.class.modifier.evade * 1) + (15 * 1) } else { player.class.modifier.evade = (yevadet * 1); };
+	if (selectedClass === 'thief') { player.class.modifier.evade = (player.class.modifier.evade * 1) + (15 * 1) } else { player.class.modifier.evade = (evade * 1); };
 	if (selectedClass === 'mage') { player.class.mage = 1 } else { player.class.mage = 0 };
 	if (selectedClass === 'cleric') { player.class.cleric = 1.85 } else { player.class.cleric = 1 };
 
 	player.quest.boss = 1;
 	player.level = 1;
-	player.class.modifier.mp = mpbounus;
-	player.class.modifier.hp = hpbounus;
+	player.class.modifier.mp = mp;
+	player.class.modifier.hp = hp;
 
 	player.gear.weapon = 1;
 	player.gear.armor = 2;
@@ -785,10 +789,10 @@ function create2() {
 	showgear();
 	player.gold = 1500;
 	player.exp.current = 0;
-	player.stats.strength = st;
-	player.stats.endurance = en;
-	player.stats.agility = ag;
-	player.stats.magic = ma;
+	player.stats.strength = strength;
+	player.stats.endurance = endurance;
+	player.stats.agility = agility;
+	player.stats.magic = magic;
 	player.hp.max = Math.round((30 * 1) + (player.stats.endurance * 2.5));
 	player.mp.max = Math.round((15 * 1) + (player.stats.magic * 1.2));
 
