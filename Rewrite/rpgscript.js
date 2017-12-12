@@ -1,65 +1,60 @@
 // DO NOT EDIT OR MODIFY THIS SOURCE CODE. got heem
 // � Copyright 1999.  Pok-Ching Lee.  All Rights Reserved.
 
-goodexp = 0;
+
+// god mode when set to 1
 mebeogd = 0;
 
-let player = {};
+// increases exp gains when set to 1
+goodexp = 0;
 
-// implemented
-player.name = '';
-player.gold = 0;
-player.level = 0;
-player.gear = { weapon: 0, shield: 0, armor: 0 }
-player.gear.armor = 0;
-
-player.hp = { current: 0, max: 0 }
-player.mp = { current: 0, max: 0 }
-player.exp = { current: 0, next: 0 }
-
-player.stats = {
-	strength: 0,
-	endurance: 0,
-	agility: 0,
-	magic: 0,
-	evade: 0
-}
-
-// TODO: figure out what exactly these are
-player.race = {
-	fighter: 0,
-	thief: 0,
-	mage: 0,
-	cleric: 0,
-
-	mpb: 0,
-	lb: 0,
-	mb: 0,
-	ab: 0,
-	eb: 0,
-	sb: 0,
-
-	modifier : {
-		hp: 0,
-		mp: 0,
+// player object
+let player = {
+	name: '',
+	gold: 0,
+	level: 0,
+	gear: { weapon: 0, shield: 0, armor: 0 },
+	hp: { current: 0, max: 0 },
+	mp: { current: 0, max: 0 },
+	exp: { current: 0, next: 0 },
+	stats: {
+		strength: 0,
+		endurance: 0,
+		agility: 0,
+		magic: 0,
 		evade: 0
+	},
+	class: {
+		fighter: 0,
+		thief: 0,
+		mage: 0,
+		cleric: 0,
+		baseStats: {
+			mp: 0,
+			hp: 0,
+			strength: 0,
+			endurance: 0,
+			agility: 0,
+			magic: 0,
+		},
+		modifier: {
+			hp: 0,
+			mp: 0,
+			evade: 0
+		}
+	},
+	quest: {
+		boss: 0
+	},
+	items: {
+		heal1: 0,
+		heal2: 0,
+		heal3: 0,
+		heal4: 0,
+		heal5: 0,
+		heal6: 0,
 	}
-}
-
-player.quest = {
-	boss: 0
-}
-
-player.items = {
-	heal1: 0,
-	heal2: 0,
-	heal3: 0,
-	heal4: 0,
-	heal5: 0,
-	heal6: 0,
-}
-
-// not implemented
+};
 
 function opTest() {
 	player.hp.max = 10000;
@@ -95,7 +90,7 @@ function setSave3() {
 	var expdate = new Date("December 25, 2099");
 	var expdate = expdate.toGMTString();
 	console.log(player);
-	document.cookie = player.quest.boss + "," + player.level + "," + player.race.modifier.mp + "," + player.race.modifier.hp + "," + player.exp.next + "," + player.gear.weapon + "," + player.gear.armor + "," + player.gear.shield + "," + player.gold + "," + player.exp.current + "," + player.stats.strength + "," + player.stats.endurance + "," + player.stats.agility + "," + player.stats.magic + "," + player.hp.max + "," + player.mp.max + "," + player.stats.evade + "," + player.race.sb + "," + player.race.eb + "," + player.race.ab + "," + player.race.mb + "," + player.race.lb + "," + player.race.mpb + "," + player.hp.current + "," + player.mp.current + "," + player.items.heal1 + "," + player.items.heal2 + "," + player.items.heal3 + "," + player.items.heal4 + "," + player.items.heal5 + "," + player.items.heal6 + "," + player.name + "," + player.race.fighter + "," + player.race.mage + "," + player.race.modifier.evade + "," + player.race.cleric + ";expires=" + expdate;
+	document.cookie = player.quest.boss + "," + player.level + "," + player.class.modifier.mp + "," + player.class.modifier.hp + "," + player.exp.next + "," + player.gear.weapon + "," + player.gear.armor + "," + player.gear.shield + "," + player.gold + "," + player.exp.current + "," + player.stats.strength + "," + player.stats.endurance + "," + player.stats.agility + "," + player.stats.magic + "," + player.hp.max + "," + player.mp.max + "," + player.stats.evade + "," + player.class.baseStats.strength + "," + player.class.baseStats.endurance + "," + player.class.baseStats.agility + "," + player.class.baseStats.magic + "," + player.class.baseStats.hp + "," + player.class.baseStats.mp + "," + player.hp.current + "," + player.mp.current + "," + player.items.heal1 + "," + player.items.heal2 + "," + player.items.heal3 + "," + player.items.heal4 + "," + player.items.heal5 + "," + player.items.heal6 + "," + player.name + "," + player.class.fighter + "," + player.class.mage + "," + player.class.modifier.evade + "," + player.class.cleric + ";expires=" + expdate;
 }
 
 function setLoad() {
@@ -120,8 +115,8 @@ function setLoad2() {
 	eval("document.qu.review.value = msg" + player.quest.boss + ";");
 
 	player.level = thecookie[1];
-	player.race.modifier.mp = thecookie[2];
-	player.race.modifier.hp = thecookie[3];
+	player.class.modifier.mp = thecookie[2];
+	player.class.modifier.hp = thecookie[3];
 	player.exp.next = thecookie[4];
 	player.gear.weapon = thecookie[5];
 	player.gear.armor = thecookie[6];
@@ -135,12 +130,12 @@ function setLoad2() {
 	player.hp.max = thecookie[14];
 	player.mp.max = thecookie[15];
 	player.stats.evade = thecookie[16];
-	player.race.sb = thecookie[17];
-	player.race.eb = thecookie[18];
-	player.race.ab = thecookie[19];
-	player.race.mb = thecookie[20];
-	player.race.lb = thecookie[21];
-	player.race.mpb = thecookie[22];
+	player.class.baseStats.strength = thecookie[17];
+	player.class.baseStats.endurance = thecookie[18];
+	player.class.baseStats.agility = thecookie[19];
+	player.class.baseStats.magic = thecookie[20];
+	player.class.baseStats.hp = thecookie[21];
+	player.class.baseStats.mp = thecookie[22];
 	player.hp.current = thecookie[23];
 	player.mp.current = thecookie[24];
 	player.items.heal1 = thecookie[25];
@@ -150,10 +145,10 @@ function setLoad2() {
 	player.items.heal5 = thecookie[29];
 	player.items.heal6 = thecookie[30];
 	player.name = thecookie[31];
-	player.race.fighter = thecookie[32];
-	player.race.mage = thecookie[33];
-	player.race.modifier.evade = thecookie[34];
-	player.race.cleric = thecookie[35];
+	player.class.fighter = thecookie[32];
+	player.class.mage = thecookie[33];
+	player.class.modifier.evade = thecookie[34];
+	player.class.cleric = thecookie[35];
 	showstat();
 	showgear();
 	showitem();
@@ -186,10 +181,10 @@ msg4 = "After finishing your quest, you have became well known in the lands.  Yo
 msg5 = "After returning with the golden fleece, the king promptly gives you your final quest.  A necromancer has been behind all of the past attacks.  You quest is to destroy him and bring peace to the lands."
 
 function loadit() {
+	// TODO: find out what needs to be put in on the initial load
 	created = 0;
-	racehuman();
+
 	townbutton();
-	item1();
 	player.items.heal1 = 5;
 	player.items.heal2 = 1;
 	player.items.heal3 = 0;
@@ -198,9 +193,11 @@ function loadit() {
 	player.items.heal6 = 0;
 	magicselect();
 	stanceselect();
-	pclass1();
-	race1();
 	document.qu.review.value = msg1;
+
+	raceHuman();
+	classFighter();
+	selectItem();
 }
 
 function outside2() {
@@ -222,24 +219,17 @@ function outside2() {
 	addstr = 0;
 }
 
-function pclass1() {
-	document.formb.c1.checked = true;
-	document.formb.c2.checked = false;
-	document.formb.c3.checked = false;
-	document.formb.c4.checked = false;
+function classFighter() {
 	tsbounus = 2;
 	tebounus = 3;
 	tabounus = 0;
 	tmbounus = 0;
+
 	tlbounus = 5;
 	tmpbounus = 0;
 }
 
-function pclass2() {
-	document.formb.c1.checked = false;
-	document.formb.c2.checked = true;
-	document.formb.c3.checked = false;
-	document.formb.c4.checked = false;
+function classThief() {
 	tsbounus = 1;
 	tebounus = 0;
 	tabounus = 4;
@@ -248,11 +238,7 @@ function pclass2() {
 	tmpbounus = 0;
 }
 
-function pclass3() {
-	document.formb.c1.checked = false;
-	document.formb.c2.checked = false;
-	document.formb.c3.checked = true;
-	document.formb.c4.checked = false;
+function classMage() {
 	tsbounus = 0;
 	tebounus = 0;
 	tabounus = 1;
@@ -261,11 +247,7 @@ function pclass3() {
 	tmpbounus = 4;
 }
 
-function pclass4() {
-	document.formb.c1.checked = false;
-	document.formb.c2.checked = false;
-	document.formb.c3.checked = false;
-	document.formb.c4.checked = true;
+function classCleric() {
 	tsbounus = 2;
 	tebounus = 0;
 	tabounus = 0;
@@ -395,7 +377,7 @@ function shop1() {
 	if (buywindow.document.buystuff.y.checked) { by() };
 
 	if (buywindow.document.buystuff.aa.checked) { ba1() };
-	if (buywindow.document.buystuff.player.race.ab.checked) { bb2() };
+	if (buywindow.document.buystuff.player.class.baseStats.agility.checked) { bb2() };
 	if (buywindow.document.buystuff.ac.checked) { bc3() };
 	if (buywindow.document.buystuff.ad.checked) { bd4() };
 	if (buywindow.document.buystuff.ae.checked) { be5() };
@@ -559,59 +541,19 @@ function shopbutton() {
 	document.monster.src = "pic/inside.gif";
 }
 
-function item1() {
-	document.items.rad2.checked = false;
-	document.items.rad3.checked = false;
-	document.items.rad4.checked = false;
-	document.items.rad5.checked = false;
-	document.items.rad6.checked = false;
-	itemuse = 1;
+function selectItem() {
+	// get selected item
+	let items = document.getElementsByName("radioSelectedItem");
+	let selectedItem;
+	for (let i = 0; i < items.length; i++) {
+		if (items[i].checked) {
+			selectedItem = items[i].value;
+		}
+	}
+
+	alert(selectedItem);
 }
 
-function item2() {
-	document.items.rad1.checked = false;
-	document.items.rad3.checked = false;
-	document.items.rad4.checked = false;
-	document.items.rad5.checked = false;
-	document.items.rad6.checked = false;
-	itemuse = 2;
-}
-
-function item3() {
-	document.items.rad1.checked = false;
-	document.items.rad2.checked = false;
-	document.items.rad4.checked = false;
-	document.items.rad5.checked = false;
-	document.items.rad6.checked = false;
-	itemuse = 3;
-}
-
-function item4() {
-	document.items.rad1.checked = false;
-	document.items.rad2.checked = false;
-	document.items.rad3.checked = false;
-	document.items.rad5.checked = false;
-	document.items.rad6.checked = false;
-	itemuse = 4;
-}
-
-function item5() {
-	document.items.rad1.checked = false;
-	document.items.rad2.checked = false;
-	document.items.rad3.checked = false;
-	document.items.rad4.checked = false;
-	document.items.rad6.checked = false;
-	itemuse = 5;
-}
-
-function item6() {
-	document.items.rad1.checked = false;
-	document.items.rad2.checked = false;
-	document.items.rad3.checked = false;
-	document.items.rad4.checked = false;
-	document.items.rad5.checked = false;
-	itemuse = 6;
-}
 
 function showstatb() {
 	document.formb.s.value = st;
@@ -622,13 +564,14 @@ function showstatb() {
 }
 
 
-
+// increase strength
 function ys() {
 	pleft = (pleft * 1) - (1 * 1);
 	st = (st * 1) + (1 * 1);
 	showstatb();
 }
 
+// decrease strength
 function ns() {
 	if (st >= 9) {
 		st = (st * 1) - (1 * 1);
@@ -640,12 +583,14 @@ function ns() {
 	}
 }
 
+// increase endurance
 function ye() {
 	pleft = (pleft * 1) - (1 * 1);
 	en = (en * 1) + (1 * 1);
 	showstatb();
 }
 
+// decrease strength
 function ne() {
 	if (en >= 9) {
 		en = (en * 1) - (1 * 1);
@@ -657,12 +602,14 @@ function ne() {
 	}
 }
 
+// increase agility
 function ya() {
 	pleft = (pleft * 1) - (1 * 1);
 	ag = (ag * 1) + (1 * 1);
 	showstatb();
 }
 
+// decrease agility
 function na() {
 	if (ag >= 9) {
 		ag = (ag * 1) - (1 * 1);
@@ -674,12 +621,14 @@ function na() {
 	}
 }
 
+// increase magic
 function ym() {
 	pleft = (pleft * 1) - (1 * 1);
 	ma = (ma * 1) + (1 * 1);
 	showstatb();
 }
 
+// decrease magic
 function nm() {
 	if (ma >= 9) {
 		ma = (ma * 1) - (1 * 1);
@@ -692,7 +641,7 @@ function nm() {
 }
 
 
-function racehuman() {
+function raceHuman() {
 	st = 12;
 	en = 12;
 	ag = 12;
@@ -704,7 +653,7 @@ function racehuman() {
 	mpbounus = 1;
 }
 
-function raceelf() {
+function raceElf() {
 	st = 8;
 	en = 8;
 	ag = 14;
@@ -716,7 +665,7 @@ function raceelf() {
 	mpbounus = 5;
 }
 
-function racedwarf() {
+function raceDwarf() {
 	st = 14;
 	en = 14;
 	ag = 8;
@@ -728,7 +677,7 @@ function racedwarf() {
 	mpbounus = 0;
 }
 
-function racehalfing() {
+function raceHalfling() {
 	st = 10;
 	en = 10;
 	ag = 16;
@@ -740,50 +689,96 @@ function racehalfing() {
 	mpbounus = 2;
 }
 
-function race1() {
-	document.formb.pick1.checked = true;
-	document.formb.pick2.checked = false;
-	document.formb.pick3.checked = false;
-	document.formb.pick4.checked = false;
-	racehuman();
+function getSelectedRaceName() {
+	// get race
+	let races = document.getElementsByName("radioRace");
+	let selectedRace;
+	for (let i = 0; i < races.length; i++) {
+		if (races[i].checked) {
+			selectedRace = races[i].value;
+		}
+	}
+	return selectedRace;
 }
 
-function race2() {
-	document.formb.pick1.checked = false;
-	document.formb.pick3.checked = false;
-	document.formb.pick4.checked = false;
-	raceelf();
+function selectRace() {
+
+	let selectedRace = getSelectedRaceName();
+	// select race
+	switch (selectedRace) {
+		case 'human':
+			raceHuman()
+			break;
+		case 'elf':
+			raceElf();
+			break;
+		case 'dwarf':
+			raceDwarf();
+			break;
+		case 'halfling':
+			raceHalfling();
+			break;
+		default:
+			alert('oh no broken')
+	}
 }
 
-function race3() {
-	document.formb.pick1.checked = false;
-	document.formb.pick2.checked = false;
-	document.formb.pick4.checked = false;
-	racedwarf();
+function getSelectedClassName() {
+	// get class
+	let classes = document.getElementsByName("radioClass");
+	let selectedClass;
+	for (let i = 0; i < classes.length; i++) {
+		if (classes[i].checked) {
+			selectedClass = classes[i].value;
+		}
+	}
+	return selectedClass
 }
 
-function race4() {
-	document.formb.pick1.checked = false;
-	document.formb.pick2.checked = false;
-	document.formb.pick3.checked = false;
-	racehalfing();
+function selectClass() {
+	let selectedClass = getSelectedClassName();
+
+	// select class
+	switch (selectedClass) {
+		case 'fighter':
+			classFighter()
+			break;
+		case 'thief':
+			classThief();
+			break;
+		case 'mage':
+			classMage();
+			break;
+		case 'cleric':
+			classCleric();
+			break;
+		default:
+			alert('oh no broken')
+	}
 }
+
+
 
 function showname() {
 	document.stats.gamename.value = player.name;
 }
 
 function create2() {
-	if (document.formb.c3.checked) { player.race.mage = 1 } else { player.race.mage = 0 };
-	if (document.formb.c4.checked) { player.race.cleric = 1.85 } else { player.race.cleric = 1 };
-	if (document.formb.c1.checked) { player.race.fighter = 1.5 } else { player.race.fighter = 1 };
+	let selectedRace = getSelectedRaceName();
+	let selectedClass = getSelectedClassName();
+
+	if (selectedRace === 'human') { player.exp.next = 75; } else { player.exp.next = 85; };
+
+	if (selectedClass === 'fighter') { player.class.fighter = 1.5 } else { player.class.fighter = 1 };
+	if (selectedClass === 'thief') { player.class.modifier.evade = (player.class.modifier.evade * 1) + (15 * 1) } else { player.class.modifier.evade = (yevadet * 1); };
+	if (selectedClass === 'mage') { player.class.mage = 1 } else { player.class.mage = 0 };
+	if (selectedClass === 'cleric') { player.class.cleric = 1.85 } else { player.class.cleric = 1 };
 
 	player.quest.boss = 1;
 	player.level = 1;
-	player.race.modifier.mp = mpbounus;
-	player.race.modifier.hp = hpbounus;
-	player.exp.next = 85;
-	if (document.formb.pick1.checked) { player.exp.next = 75 }
+	player.class.modifier.mp = mpbounus;
+	player.class.modifier.hp = hpbounus;
+
 	player.gear.weapon = 1;
 	player.gear.armor = 2;
 	player.gear.shield = 1;
@@ -796,16 +791,18 @@ function create2() {
 	player.stats.magic = ma;
 	player.hp.max = Math.round((30 * 1) + (player.stats.endurance * 2.5));
 	player.mp.max = Math.round((15 * 1) + (player.stats.magic * 1.2));
-	player.race.modifier.evade = (yevadet * 1);
-	if (document.formb.c2.checked) { player.race.modifier.evade = (player.race.modifier.evade * 1) + (15 * 1) };
-	player.stats.evade = Math.round((player.race.modifier.evade * 1) + (player.stats.agility * .5));
 
-	player.race.sb = tsbounus;
-	player.race.eb = tebounus;
-	player.race.ab = tabounus;
-	player.race.mb = tmbounus;
-	player.race.lb = tlbounus;
-	player.race.mpb = tmpbounus;
+
+
+	player.stats.evade = Math.round((player.class.modifier.evade * 1) + (player.stats.agility * .5));
+
+
+	player.class.baseStats.strength = tsbounus;
+	player.class.baseStats.endurance = tebounus;
+	player.class.baseStats.agility = tabounus;
+	player.class.baseStats.magic = tmbounus;
+	player.class.baseStats.hp = tlbounus;
+	player.class.baseStats.mp = tmpbounus;
 
 	player.hp.current = player.hp.max;
 	player.mp.current = player.mp.max;
@@ -1731,13 +1728,13 @@ function ysurvive() {
 function levelup() {
 	player.exp.next = Math.round(player.exp.next * 1.8);
 	player.level = (player.level * 1) + (1 * 1);
-	var up1 = Math.round(Math.random() * 5) + (player.race.sb * 1);
-	var up2 = Math.round(Math.random() * 5) + (player.race.ab * 1);
-	var up3 = Math.round(Math.random() * 5) + (player.race.eb * 1);
-	var up4 = Math.round(Math.random() * 5) + (player.race.mb * 1);
-	var up5 = Math.round(Math.random() * player.stats.magic * 1) + (player.race.modifier.mp * 1) + (player.race.mpb * 1);
-	var up6 = Math.round((Math.random() * 1.25) + (player.stats.endurance * 1.2) + (player.stats.strength * .25)) + (player.race.modifier.hp * 1) + (player.race.lb * 1);
-	var up7 = Math.round((player.race.modifier.evade * 1) + (player.stats.agility * .5));
+	var up1 = Math.round(Math.random() * 5) + (player.class.baseStats.strength * 1);
+	var up2 = Math.round(Math.random() * 5) + (player.class.baseStats.agility * 1);
+	var up3 = Math.round(Math.random() * 5) + (player.class.baseStats.endurance * 1);
+	var up4 = Math.round(Math.random() * 5) + (player.class.baseStats.magic * 1);
+	var up5 = Math.round(Math.random() * player.stats.magic * 1) + (player.class.modifier.mp * 1) + (player.class.baseStats.mp * 1);
+	var up6 = Math.round((Math.random() * 1.25) + (player.stats.endurance * 1.2) + (player.stats.strength * .25)) + (player.class.modifier.hp * 1) + (player.class.baseStats.hp * 1);
+	var up7 = Math.round((player.class.modifier.evade * 1) + (player.stats.agility * .5));
 
 	player.stats.strength = (player.stats.strength * 1) + (up1 * 1);
 	player.stats.agility = (player.stats.agility * 1) + (up2 * 1);
@@ -2180,7 +2177,7 @@ function mon5() {
 function cast1() {
 	if (player.mp.current >= 10) {
 		player.mp.current = (player.mp.current * 1) - (10 * 1);
-		var add = Math.round((player.stats.magic * .8) + (player.stats.magic * Math.random() * .5 * player.race.cleric));
+		var add = Math.round((player.stats.magic * .8) + (player.stats.magic * Math.random() * .5 * player.class.cleric));
 		player.hp.current = (player.hp.current * 1) + (add * 1);
 		alert("You cast heal and recovered " + add + " hp.");
 		if (player.hp.current > player.hp.max) { player.hp.current = player.hp.max };
@@ -2298,7 +2295,7 @@ function cast8() {
 function cast9() {
 	if (player.mp.current >= 25) {
 		player.mp.current = (player.mp.current * 1) - (25 * 1);
-		var add = Math.round((player.stats.magic * 1.6) + (player.stats.magic * Math.random() * .8 * player.race.cleric));
+		var add = Math.round((player.stats.magic * 1.6) + (player.stats.magic * Math.random() * .8 * player.class.cleric));
 		player.hp.current = (player.hp.current * 1) + (add * 1);
 		alert("You cast heal2 and recovered " + add + " hp.");
 		if (player.hp.current > player.hp.max) { player.hp.current = player.hp.max };
@@ -2312,11 +2309,11 @@ function cast9() {
 }
 
 function cast10() {
-	if (player.race.mage == 1) {
+	if (player.class.mage == 1) {
 		cast10a();
 	}
 	else {
-		alert("Only a player.race.mage may cast this spell.");
+		alert("Only a player.class.mage may cast this spell.");
 	}
 	showstat();
 }
@@ -2335,11 +2332,11 @@ function cast10a() {
 }
 
 function cast11() {
-	if (player.race.mage == 1) {
+	if (player.class.mage == 1) {
 		cast11z();
 	}
 	else {
-		alert("Only a player.race.mage can cast this spell.");
+		alert("Only a player.class.mage can cast this spell.");
 	}
 	showstat();
 }
@@ -2602,7 +2599,7 @@ function a1() {
 }
 
 function b1() {
-	eattack = Math.round(((Math.random() * 7) + (7 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 7) + (7 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -2626,7 +2623,7 @@ function a2() {
 }
 
 function b2() {
-	eattack = Math.round(((Math.random() * 10) + (8 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 10) + (8 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -2650,7 +2647,7 @@ function a3() {
 }
 
 function b3() {
-	eattack = Math.round(((Math.random() * 8) + (6 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (Math.random() * stance));
+	eattack = Math.round(((Math.random() * 8) + (6 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (Math.random() * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -2675,13 +2672,13 @@ function a4() {
 
 
 function b4() {
-	eattack = Math.round(((Math.random() * 5) + (12 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 5) + (12 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special4() {
-	eattack = Math.round(((Math.random() * 20) + (20 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (20 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	alert("Novice knight charges at you and inflicts " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -2708,13 +2705,13 @@ function fboss1() {
 }
 
 function b5() {
-	eattack = Math.round(((Math.random() * 20) + (20 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (20 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special5() {
-	eattack = Math.round(((Math.random() * 20) + (40 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (40 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	alert("Female mercenary trust her spear at you and caused " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -2742,13 +2739,13 @@ function a6() {
 
 
 function b6() {
-	eattack = Math.round(((Math.random() * 10) + (25 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 10) + (25 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special6() {
-	eattack = Math.round(((Math.random() * 20) + (40 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (40 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 0 };
 	alert("The female barbarian lunges at you and inflicts " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -2776,7 +2773,7 @@ function a7() {
 
 
 function b7() {
-	eattack = Math.round(((Math.random() * 15) + (30 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 15) + (30 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -2801,7 +2798,7 @@ function a8() {
 
 
 function b8() {
-	eattack = Math.round(((Math.random() * 20) + (40 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (40 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -2833,7 +2830,7 @@ function fboss2() {
 }
 
 function b9() {
-	eattack = Math.round(((Math.random() * 15) + (55 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 15) + (55 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -2867,13 +2864,13 @@ function a10() {
 }
 
 function b10() {
-	eattack = Math.round(((Math.random() * 18) + (54 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 18) + (54 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special10() {
-	eattack = Math.round(((Math.random() * 28) + (54 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 28) + (54 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	alert("The winged warrior dives toward you causing " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -2901,7 +2898,7 @@ function a11() {
 
 
 function b11() {
-	eattack = Math.round(((Math.random() * 35) + (65 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 35) + (65 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -2931,13 +2928,13 @@ function a12() {
 }
 
 function b12() {
-	eattack = Math.round(((Math.random() * 25) + (84 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 25) + (84 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special12() {
-	eattack = Math.round(((Math.random() * 20) + (125 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (125 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	alert("The werewolf bites you causing " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -2951,7 +2948,7 @@ function special12() {
 
 function a13() {
 	document.monster.src = "monster/a13.gif";
-	alert("You have encountered an apprentice player.race.mage.");
+	alert("You have encountered an apprentice player.class.mage.");
 	ehp = 200;
 	enemyevade = 20;
 	earmor = 2;
@@ -2967,7 +2964,7 @@ function a13() {
 function b13() {
 	var morespell = Math.round(Math.random() * 99);
 	if (morespell >= 40) {
-		eattack = Math.round(((Math.random() * 20) + (64 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+		eattack = Math.round(((Math.random() * 20) + (64 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 		if (eattack <= 0) { eattack = 1 };
 		counter();
 	}
@@ -2980,7 +2977,7 @@ function special13() {
 	if (ehp >= 60) {
 		eattack = Math.round((Math.random() * 25) + (88 * 1) - (player.stats.magic * .75) - (magdef * 1));
 		if (eattack <= 0) { eattack = 1 };
-		alert("The apprentice player.race.mage cast fire on you causing " + eattack + " points of damage.");
+		alert("The apprentice player.class.mage cast fire on you causing " + eattack + " points of damage.");
 		player.hp.current = (player.hp.current * 1) - (eattack * 1);
 		showstat();
 		ysurvive();
@@ -2989,7 +2986,7 @@ function special13() {
 		var hself = Math.round((Math.random() * 80) + (40 * 1));
 		ehp = (hself * 1) + (ehp * 1);
 		if (ehp > 150) { ehp = 150 };
-		alert("The apprentice player.race.mage cast heal on himself and recovered " + hself + " hit points.");
+		alert("The apprentice player.class.mage cast heal on himself and recovered " + hself + " hit points.");
 	}
 }
 
@@ -3016,7 +3013,7 @@ function fboss3() {
 function b14() {
 	var morespell = Math.round(Math.random() * 99);
 	if (morespell >= 75) {
-		eattack = Math.round(((Math.random() * 20) + (75 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+		eattack = Math.round(((Math.random() * 20) + (75 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 		if (eattack <= 0) { eattack = 1 };
 		counter();
 	}
@@ -3085,13 +3082,13 @@ function a15() {
 }
 
 function b15() {
-	eattack = Math.round(((Math.random() * 23) + (84 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 23) + (84 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special15() {
-	eattack = Math.round(((Math.random() * 55) + (88 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 55) + (88 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	alert("The archer shoots a flaming arrow causing " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -3118,7 +3115,7 @@ function a16() {
 }
 
 function b16() {
-	eattack = Math.round(((Math.random() * 20) + (88 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (88 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -3152,13 +3149,13 @@ function a17() {
 }
 
 function b17() {
-	eattack = Math.round(((Math.random() * 20) + (84 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (84 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special17() {
-	eattack = Math.round(((Math.random() * 45) + (84 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 45) + (84 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	alert("The long swordmen trust at you causing " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -3186,13 +3183,13 @@ function a18() {
 }
 
 function b18() {
-	eattack = Math.round(((Math.random() * 20) + (80 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (80 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special18() {
-	eattack = Math.round(((Math.random() * 30) + (85 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 30) + (85 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	alert("The pegasus charges at you causing " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -3219,13 +3216,13 @@ function fboss4() {
 }
 
 function b19() {
-	eattack = Math.round(((Math.random() * 20) + (110 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (110 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special19() {
-	eattack = Math.round(((Math.random() * 50) + (160 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 50) + (160 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	alert("Minotaur charges at you causing " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -3252,7 +3249,7 @@ function a20() {
 }
 
 function b20() {
-	eattack = Math.round(((Math.random() * 50) + (110 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1) * (1 * stance)));
+	eattack = Math.round(((Math.random() * 50) + (110 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1) * (1 * stance)));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -3288,13 +3285,13 @@ function a21() {
 }
 
 function b21() {
-	eattack = Math.round(((Math.random() * 20) + (120 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 20) + (120 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special21() {
-	eattack = Math.round(((Math.random() * 40) + (140 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 40) + (140 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	alert("The squad leader charges at you causing " + eattack + " points of damage.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -3322,7 +3319,7 @@ function a22() {
 
 function b22() {
 	if (ehp >= 200) {
-		eattack = Math.round(((Math.random() * 40) + (90 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+		eattack = Math.round(((Math.random() * 40) + (90 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 		if (eattack <= 0) { eattack = 1 };
 		counter();
 	}
@@ -3333,7 +3330,7 @@ function b22() {
 
 function special22() {
 	if (ehp >= 200) {
-		eattack = Math.round(((Math.random() * 40) + (110 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+		eattack = Math.round(((Math.random() * 40) + (110 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 		if (eattack <= 0) { eattack = 1 };
 		alert("The paladin charges at you causing " + eattack + " points of damage.");
 		player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -3353,7 +3350,7 @@ function special22b() {
 		alert("The paladin cast heal and recovered " + hself + " hit points.");
 	}
 	else {
-		eattack = Math.round(((Math.random() * 35) + (135 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+		eattack = Math.round(((Math.random() * 35) + (135 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 		if (eattack <= 0) { eattack = 1 };
 		alert("The paladin charges at you causing " + eattack + " points of damage.");
 		player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -3381,14 +3378,14 @@ function a23() {
 }
 
 function b23() {
-	eattack = Math.round(((Math.random() * 35) + (110 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 35) + (110 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
 
 function special23() {
 	if (ehp >= 200) {
-		eattack = Math.round(((Math.random() * 45) + (120 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+		eattack = Math.round(((Math.random() * 45) + (120 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 		if (eattack <= 0) { eattack = 1 };
 		alert("The heavy calvary charges at you causing " + eattack + " points of damage.");
 		player.hp.current = (player.hp.current * 1) - (eattack * 1);
@@ -3412,7 +3409,7 @@ function special23() {
 
 function a24() {
 	document.monster.src = "monster/a24.gif";
-	alert("You have encountered a red player.race.mage.");
+	alert("You have encountered a red player.class.mage.");
 	ehp = 480;
 	enemyevade = 40;
 	earmor = 10;
@@ -3426,7 +3423,7 @@ function a24() {
 }
 
 function b24() {
-	eattack = Math.round(((Math.random() * 40) + (96 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 40) + (96 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -3434,7 +3431,7 @@ function b24() {
 function special24() {
 	eattack = Math.round((Math.random() * 100) + (180 * 1) - (player.stats.magic * .75) - (magdef * 1));
 	if (eattack <= 0) { eattack = 1 };
-	alert("The red player.race.mage cast meteor on you causing " + eattack + " hit points from you.");
+	alert("The red player.class.mage cast meteor on you causing " + eattack + " hit points from you.");
 	player.hp.current = (player.hp.current * 1) - (eattack * 1);
 	showstat();
 	ysurvive();
@@ -3459,7 +3456,7 @@ function a25() {
 }
 
 function b25() {
-	eattack = Math.round(((Math.random() * 60) + (145 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 60) + (145 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -3505,7 +3502,7 @@ function fboss5() {
 function b26() {
 	var morespell0 = Math.round(Math.random() * 99);
 	if (morespell0 >= 65) {
-		eattack = Math.round(((Math.random() * 20) + (100 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+		eattack = Math.round(((Math.random() * 20) + (100 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 		if (eattack <= 0) { eattack = 1 };
 		counter()
 	}
@@ -3579,7 +3576,7 @@ function fboss6() {
 }
 
 function b27() {
-	eattack = Math.round(((Math.random() * 45) + (140 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 45) + (140 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
@@ -3625,7 +3622,7 @@ function fboss7() {
 }
 
 function b28() {
-	eattack = Math.round(((Math.random() * 80) + (180 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.race.fighter) - (def * 1)) * (1 * stance));
+	eattack = Math.round(((Math.random() * 80) + (180 * 1) - (player.gear.armor * 1) - (player.stats.endurance * .25) - (player.gear.shield * player.class.fighter) - (def * 1)) * (1 * stance));
 	if (eattack <= 0) { eattack = 1 };
 	counter();
 }
