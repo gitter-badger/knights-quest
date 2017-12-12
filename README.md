@@ -1,4 +1,6 @@
 # Knight's Quest V2.4
+
+[![Join the chat at https://gitter.im/knights-quest/Lobby](https://badges.gitter.im/knights-quest/Lobby.svg)](https://gitter.im/knights-quest/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A repo to preserve the Text Based RPG "Knight's Quest" by Pok-Ching Lee from 1999
  
 **Original :**
