@@ -550,8 +550,6 @@ function selectItem() {
 			selectedItem = items[i].value;
 		}
 	}
-
-	alert(selectedItem);
 }
 
 
