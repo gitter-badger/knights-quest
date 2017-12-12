@@ -1,10 +1,10 @@
 {"items":[
 	{"name":"Healing Cherry","description":"Recover 50HP","recovery":{"hp":50,"mp":0},"price":50},
-	{"name":"Healing Potion","description":"Recover 150HP","recovery":{"hp":150,"mp":0}","price":200},
-	{"name":"Healing Brew","description":"Recover 300HP","recovery":{"hp":300,"mp":0}","price":500},
-	{"name":"Magic Ether","description":"Recover 40MP","recovery":{"hp":0,"mp":40}","price":300},
-	{"name":"Magic Potion","description":"Recover 150MP","recovery":{"hp":0,"mp":150}","price":800},
-	{"name":"Elixir","description":"Recover ALL HP/MP","recovery":{"hp":null,"mp":null}","price":2000}
+	{"name":"Healing Potion","description":"Recover 150HP","recovery":{"hp":150,"mp":0},"price":200},
+	{"name":"Healing Brew","description":"Recover 300HP","recovery":{"hp":300,"mp":0},"price":500},
+	{"name":"Magic Ether","description":"Recover 40MP","recovery":{"hp":0,"mp":40},"price":300},
+	{"name":"Magic Potion","description":"Recover 150MP","recovery":{"hp":0,"mp":150},"price":800},
+	{"name":"Elixir","description":"Recover ALL HP/MP","recovery":{"hp":null,"mp":null},"price":2000}
 ],
 "weapons":[
 	{"name":"Short Sabre","damage":{"min":1,"max":4},"price":50},
