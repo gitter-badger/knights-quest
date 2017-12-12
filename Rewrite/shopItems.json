@@ -1,0 +1,53 @@
+{"items":[
+	{"itemName":"Healing Cherry","Description":"Recover 50HP","itemHPRecovery":"50","itemPrice":"50"},
+	{"itemName":"Healing Potion","Description":"Recover 150HP","itemHPRecovery":"150","itemPrice":"200"},
+	{"itemName":"Healing Brew","Description":"Recover 300HP","itemHPRecovery":"300","itemPrice":"500"},
+	{"itemName":"Magic Ether","Description":"Recover 40MP","itemMPRecovery":"40","itemPrice":"300"},
+	{"itemName":"Magic Potion","Description":"Recover 150MP","itemMPRecovery":"150","itemPrice":"800"},
+	{"itemName":"Elixir","Description":"Recover ALL HP/MP","itemHPRecovery":null,"itemMPRecovery":null,"itemPrice":"2000"}
+],
+"weapons":[
+	{"weaponName":"Short Sabre","weaponMinDamage":"1","weaponMaxDamage":"4","weaponPrice":"50"},
+	{"weaponName":"Long Sabre","weaponMinDamage":"1","weaponMaxDamage":"6","weaponPrice":"100"},
+	{"weaponName":"Bronze Mace","weaponMinDamage":"2","weaponMaxDamage":"4","weaponPrice":"300"},
+	{"weaponName":"Iron Mace","weaponMinDamage":"2","weaponMaxDamage":"6","weaponPrice":"500"},
+	{"weaponName":"Broad Axe","weaponMinDamage":"3","weaponMaxDamage":"5","weaponPrice":"1000"},
+	{"weaponName":"Battle Axe","weaponMinDamage":"3","weaponMaxDamage":"8","weaponPrice":"1500"},
+	{"weaponName":"Bronze Warhammer","weaponMinDamage":"2","weaponMaxDamage":"15","weaponPrice":"2000"},
+	{"weaponName":"Iron Warhammer","weaponMinDamage":"2","weaponMaxDamage":"20","weaponPrice":"2500"},
+	{"weaponName":"Morningstar","weaponMinDamage":"3","weaponMaxDamage":"30","weaponPrice":"5000"},
+	{"weaponName":"Knight's Blade","weaponMinDamage":"5","weaponMaxDamage":"50","weaponPrice":"8000"}
+],
+"armour":[
+	{"armourName":"Regular Clothes","armourAC":"2","armourPrice":"50"},
+	{"armourName":"Leather Armour","armourAC":"4","armourPrice":"200"},
+	{"armourName":"Studded Armour","armourAC":"6","armourPrice":"500"},
+	{"armourName":"Bronze Chain Mail","armourAC":"8","armourPrice":"1000"},
+	{"armourName":"Iron Chain Mail","armourAC":"10","armourPrice":"1500"},
+	{"armourName":"Bronze Half Plate","armourAC":"12","armourPrice":"2000"},
+	{"armourName":"Iron Half Plate","armourAC":"15","armourPrice":"3000"},
+	{"armourName":"Bronze Full Plate","armourAC":"20","armourPrice":"4000"},
+	{"armourName":"Iron Full Plate","armourAC":"25","armourPrice":"6000"},
+	{"armourName":"Knight's Armour","armourAC":"30","armourPrice":"10000"}
+],
+"shields":[
+	{"shieldName":"Wood Round Shield","shieldAC":"1","shieldPrice":"50"},
+	{"shieldName":"Oak Round Shield","shieldAC":"2","shieldPrice":"100"},
+	{"shieldName":"Iron Round Shield","shieldAC":"3","shieldPrice":"200"},
+	{"shieldName":"Gold Round Shield","shieldAC":"4","shieldPrice":"400"},
+	{"shieldName":"Bronze Small Shield","shieldAC":"5","shieldPrice":"800"},
+	{"shieldName":"Iron Small Shield","shieldAC":"6","shieldPrice":"1200"},
+	{"shieldName":"Bronze Medium Shield","shieldAC":"7","shieldPrice":"1500"},
+	{"shieldName":"Iron Medium Shield","shieldAC":"8","shieldPrice":"2000"},
+	{"shieldName":"Bronze Large Shield","shieldAC":"10","shieldPrice":"2500"},
+	{"shieldName":"Iron Large Shield","shieldAC":"12","shieldPrice":"3000"},
+	{"shieldName":"Wood Tower Shield","shieldAC":"14","shieldPrice":"3500"},
+	{"shieldName":"Bronze Tower Shield","shieldAC":"16","shieldPrice":"4000"},
+	{"shieldName":"Iron Tower Shield","shieldAC":"18","shieldPrice":"4500"},
+	{"shieldName":"Silver Tower Shield","shieldAC":"20","shieldPrice":"5000"},
+	{"shieldName":"Gold Tower Shield","shieldAC":"23","shieldPrice":"6000"},
+	{"shieldName":"Bronze Warrior's Shield","shieldAC":"26","shieldPrice":"7000"},
+	{"shieldName":"Gold Warrior's Shield","shieldAC":"29","shieldPrice":"8000"},
+	{"shieldName":"Medium Knight's Shield","shieldAC":"32","shieldPrice":"10000"},
+	{"shieldName":"Large Knight's Shield","shieldAC":"35","shieldPrice":"15000"}
+]}
